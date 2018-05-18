@@ -14,7 +14,7 @@ pipeline {
 		stage ('upload') {
 			steps {
     gitCommitStatus("upload") {
-      def server = Artifactory.server "artifactory@ibsrv02"
+      def server = Artifactory.server "http://34.229.203.138:8081/artifactory"
       def buildInfo = Artifactory.newBuildInfo()
       buildInfo.env.capture = true
       buildInfo.env.collect()
@@ -23,13 +23,13 @@ pipeline {
         "files": [
           {
             "pattern": "**/target/*.jar",
-            "target": "libs-snapshot-local"
+            "target": "example-repo-local"
           }, {
             "pattern": "**/target/*.pom",
-            "target": "libs-snapshot-local"
+            "target": "example-repo-local"
           }, {
             "pattern": "**/target/*.war",
-            "target": "libs-snapshot-local"
+            "target": "example-repo-local"
           }
         ]
       }"""
@@ -43,5 +43,5 @@ pipeline {
   }
 }
 	}
-}
+
 
