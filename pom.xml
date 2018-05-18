@@ -4,7 +4,7 @@
 
   <groupId>cjp.in.com</groupId>
   <artifactId>cjp</artifactId>
-  <version>1.3-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>cjp</name>
@@ -22,16 +22,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
- <distributionManagement>
-  <repository>
-     <id>mahi</id>
-     <name>Internal Releases</name>
-     <url>http://52.54.169.7:8081/nexus-latest/content/repositories/releases/</url>
-  </repository>
-  <snapshotRepository>
-     <id>mahi</id>
-     <name>Internal Releases</name>
-     <url>http://52.54.169.7:8081/nexus-latest/content/repositories/snapshots/</url>
-  </snapshotRepository>
-</distributionManagement>
+ 
 </project>
