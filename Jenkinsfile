@@ -14,8 +14,9 @@ pipeline {
 		steps {
  	
 	withMaven(maven: 'mvn') { 
+		git 'https://github.com/cdpipeline/test.git'
  		 //if(isUnix()) {
- 				sh "mvn clean package " 
+ 				// sh "mvn clean package " 
 		//	} else { 
  		//	 	bat "mvn clean package "
 		//	 fi
