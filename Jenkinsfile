@@ -14,7 +14,7 @@ pipeline {
 		steps {
  	
 	withMaven(maven: 'mvn') { 
- 			if(isUnix()) {
+ 			if(isUnix() {
  				sh "mvn clean package " 
 			} else { 
  				bat "mvn clean package " 
