@@ -10,6 +10,8 @@ pipeline {
 	}
 	}
 	stage ('cjpdemo - Build') {
+		
+		steps {
  	
 	withMaven(maven: 'mvn') { 
  			if(isUnix()) {
@@ -18,6 +20,7 @@ pipeline {
  				bat "mvn clean package " 
 			} 
  		} 
+	}
 	}
 	}
 }
