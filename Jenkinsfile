@@ -2,8 +2,6 @@
 pipeline {
 	agent any
 	stages {
-		
-
 	stage ('build') {
 		steps {
  	
@@ -11,8 +9,10 @@ pipeline {
 		}
 	}
 		
+		
 		stage ('upload') {
 			steps {
+					
     gitCommitStatus("upload") {
       def server = Artifactory.server "http://34.229.203.138:8081/artifactory"
       def buildInfo = Artifactory.newBuildInfo()
