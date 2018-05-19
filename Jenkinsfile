@@ -1,4 +1,4 @@
-
+repositoryName = "demo"
 pipeline {
 	agent any
 	stages {
