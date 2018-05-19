@@ -29,6 +29,7 @@ pipeline {
                         def buildInfo1 = server.upload(uploadSpec)
                         server.publishBuildInfo(buildInfo1)
 	    }
+	    }
 	    
 	    	    
   post
@@ -56,7 +57,7 @@ pipeline {
     }
                             
         }
-    }
+    
 		
 	    }
 
