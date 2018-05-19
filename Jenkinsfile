@@ -32,21 +32,31 @@ pipeline {
                             }
         }
     }
-		post
+post
     {
-             success
+         success
         {
-                    mail to: 'cjptech12@gmail.com',
-                     subject: "Succeded Pipeline: ${currentBuild.fullDisplayName}",
+            script
+            {
+                     mail to: 'cjptech12@gmail.com',
+                     subject: "Build + Condition Pass",
                      body: "Build got success check status @ ${env.BUILD_URL}"
-             }
-           failure
-        {
-                mail to: 'cjptech12@gmail.com',
-                   subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                   body: "Something is wrong with ${env.BUILD_URL}"
+                
             }
         }
+           failure
+        {
+                script
+            {
+               
+                    mail to: 'cjptech12@gmail.com',
+                     subject: "Build fail + Condition Pass",
+                     body: "Build got success check status @ ${env.BUILD_URL}"
+                 
+            }
+        }
+    }
+
 
 	}
 }
