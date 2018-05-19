@@ -38,16 +38,17 @@ pipeline {
         {
             script
             {
-               if (ismaster)
-		    {
+            
 		    mail to: 'cjptech12@gmail.com',
                      subject: "Build + Condition Pass",
                      body: "Build got success check status @ ${env.BUILD_URL}"
                 
             }
         
-           else
+          failure
 	   {
+		   script
+		   {
                 mail to: 'cjptech12@gmail.com',
                      subject: "Build fail + Condition Pass",
                      body: "Build got success check status @ ${env.BUILD_URL}"
