@@ -28,8 +28,33 @@ pipeline {
 
                         def buildInfo1 = server.upload(uploadSpec)
                         server.publishBuildInfo(buildInfo1)
-              
-                            }
+	    
+	    }		    
+  post
+    {
+         success
+        {
+            script
+            {
+                     mail to: 'sujith918@gmail.com',
+                     subject: "Build + Condition Pass",
+                     body: "Build got success check status @ ${env.BUILD_URL}"
+                
+            }
+        }
+           failure
+        {
+                script
+            {
+               
+                    mail to: 'sujith918@gmail.com',
+                     subject: "Build fail + Condition Pass",
+                     body: "Build got success check status @ ${env.BUILD_URL}"
+                 
+            }
+        }
+    }
+                            
         }
     }
 		
