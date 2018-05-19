@@ -35,8 +35,8 @@ pipeline {
 		stage ('mail') {
 		steps {
 		script {	
-post
-    {
+
+    
          success
         {
             script
@@ -65,4 +65,4 @@ post
 }
 		}
 	}
-}
+
