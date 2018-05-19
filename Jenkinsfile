@@ -1,4 +1,4 @@
-
+repositoryName = "demo"
 pipeline {
 	agent any
 	stages {
@@ -16,9 +16,8 @@ pipeline {
             
             steps {
             script {
-                def server = Artifactory.server ('demo')
-                if (isMaster){
-                def uploadSpec  =  """{
+                def server = Artifactory.server ('test')
+                               def uploadSpec  =  """{
                     "files": [
                 {
                                   "pattern": "${repositoryName}-1.0.${env.BUILD_NUMBER}.tar",
@@ -29,20 +28,8 @@ pipeline {
 
                         def buildInfo1 = server.upload(uploadSpec)
                         server.publishBuildInfo(buildInfo1)
-                }
-                else{
-                def uploadSpec = """{
-                "files": [
-                   {
-                   "pattern": "${repositoryName}-1.0.${env.BUILD_NUMBER}.tar",
-                   "target": "${repositoryName}/"
-                   }
-                         ]
-                    }"""
-                def buildInfo1 = server.upload(uploadSpec)
-                server.publishBuildInfo(buildInfo1)
-            }
-            }
+              
+                            }
         }
     }
 
