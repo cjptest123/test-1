@@ -21,7 +21,6 @@ pipeline {
                     "files": [
                 {
                                   "pattern": "${repositoryName}-1.0.${env.BUILD_NUMBER}.tar",
-            //      "target": "${repositoryName}/{env.BUILD_NUMBER}/"
                     "target": "**.jar"
 
                 }
