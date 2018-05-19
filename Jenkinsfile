@@ -20,7 +20,7 @@ pipeline {
                                def uploadSpec  =  """{
                     "files": [
                 {
-                                  "pattern": "/var/lib/jenkins/workspace/cdpipeline_test_master-Z4HEGPINOWF6XVURHR346BM3MVVQ2LZSSPIBEUUYT3DTJI3NXXDQ/target/cjp-1.0-SNAPSHOT.jar",
+                                  "pattern": "/var/lib/jenkins/workspace/cdpipeline_test_master-Z4HEGPINOWF6XVURHR346BM3MVVQ2LZSSPIBEUUYT3DTJI3NXXDQ/target/cjp-1.1-SNAPSHOT.jar",
                   "target": "${repositoryName}" 
                 }
                             ]
