@@ -10,39 +10,38 @@ pipeline {
 	}
 		
 		
-		stage ('upload') {
-			steps {
-					
-    gitCommitStatus("upload") {
-      def server = Artifactory.server "http://34.229.203.138:8081/artifactory"
-      def buildInfo = Artifactory.newBuildInfo()
-      buildInfo.env.capture = true
-      buildInfo.env.collect()
+		stage('Upload artifacts') {
+            
+steps {
+            script {
+                def server = Artifactory.server ('SujithJFrog')
+                if (isMaster){
+                def uploadSpec  =  """{
+                    "files": [
+                {
+                                  "pattern": "${repositoryName}-1.0.${env.BUILD_NUMBER}.tar",
+                  "target": "${repositoryName}/{env.BUILD_NUMBER}/"
+                }
+                            ]
+                      }"""
 
-      def uploadSpec = """{
-        "files": [
-          {
-            "pattern": "**/target/*.jar",
-            "target": "example-repo-local"
-          }, {
-            "pattern": "**/target/*.pom",
-            "target": "example-repo-local"
-          }, {
-            "pattern": "**/target/*.war",
-            "target": "example-repo-local"
-          }
-        ]
-      }"""
-      // Upload to Artifactory.
-      server.upload spec: uploadSpec, buildInfo: buildInfo
-
-      buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
-      // Publish build info.
-      server.publishBuildInfo buildInfo
+                        def buildInfo1 = server.upload(uploadSpec)
+                        server.publishBuildInfo(buildInfo1)
+                }
+                else{
+                def uploadSpec = """{
+                "files": [
+                   {
+                   "pattern": "${repositoryName}-1.0.${env.BUILD_NUMBER}.tar",
+                   "target": "${repositoryName}/"
+                   }
+                         ]
+                    }"""
+                def buildInfo1 = server.upload(uploadSpec)
+                server.publishBuildInfo(buildInfo1)
+            }
+            }
+        }
     }
-  }
-}
-	}
-	}
 
-
+	}
