@@ -1,4 +1,4 @@
-repositoryName = "demo"
+
 pipeline {
 	agent any
 	stages {
@@ -16,12 +16,14 @@ pipeline {
             
             steps {
             script {
-                def server = Artifactory.server ('test')
+                def server = Artifactory.server ('demo')
                                def uploadSpec  =  """{
                     "files": [
                 {
                                   "pattern": "${repositoryName}-1.0.${env.BUILD_NUMBER}.tar",
-                  "target": "${repositoryName}/{env.BUILD_NUMBER}/"
+            //      "target": "${repositoryName}/{env.BUILD_NUMBER}/"
+                    "target": "**.jar"
+
                 }
                             ]
                       }"""
