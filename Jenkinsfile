@@ -14,9 +14,9 @@ pipeline {
 		
 		stage('Upload artifacts') {
             
-steps {
+            steps {
             script {
-                def server = Artifactory.server ('SujithJFrog')
+                def server = Artifactory.server ('mahiJFrog')
                 if (isMaster){
                 def uploadSpec  =  """{
                     "files": [
@@ -47,3 +47,4 @@ steps {
     }
 
 	}
+}
