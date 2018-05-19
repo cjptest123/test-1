@@ -38,19 +38,16 @@ pipeline {
 
     
          success
-        {
-            script
-            {
+       
                      mail to: 'cjptech12@gmail.com',
                      subject: "Build + Condition Pass",
                      body: "Build got success check status @ ${env.BUILD_URL}"
                 
             }
-        }
+        
            failure
         {
-                script
-            {
+                
                
                     mail to: 'cjptech12@gmail.com',
                      subject: "Build fail + Condition Pass",
@@ -63,6 +60,5 @@ pipeline {
 
 	}
 }
-		}
-	}
+		
 
