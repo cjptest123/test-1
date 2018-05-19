@@ -16,7 +16,7 @@ pipeline {
             
             steps {
             script {
-                def server = Artifactory.server ('mahiJFrog')
+                def server = Artifactory.server ('demo')
                 if (isMaster){
                 def uploadSpec  =  """{
                     "files": [
