@@ -32,30 +32,7 @@ pipeline {
                             }
         }
     }
-		stage ('mail') {
-		steps {
-		script {	
-
-    
-         success
-       
-                     mail to: 'cjptech12@gmail.com',
-                     subject: "Build + Condition Pass",
-                     body: "Build got success check status @ ${env.BUILD_URL}"
-                
-            }
-        
-           failure
-        {
-                
-               
-                    mail to: 'cjptech12@gmail.com',
-                     subject: "Build fail + Condition Pass",
-                     body: "Build got success check status @ ${env.BUILD_URL}"
-                 
-            }
-        }
-    }
+		
 
 
 	}
