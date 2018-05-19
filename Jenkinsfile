@@ -32,6 +32,9 @@ pipeline {
                             }
         }
     }
+		stage ('mail') {
+		steps {
+		script {	
 post
     {
          success
@@ -58,5 +61,8 @@ post
     }
 
 
+	}
+}
+		}
 	}
 }
