@@ -16,7 +16,7 @@ pipeline {
             
             steps {
             script {
-                def server = Artifactory.server ('demo')
+                def server = Artifactory.server ('test')
                                def uploadSpec  =  """{
                     "files": [
                 {
