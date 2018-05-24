@@ -1,8 +1,0 @@
----
-- hosts: 34.229.203.138
-  sudo: yes
-  tasks:
-    file:
-      path: /home/ubuntu/tomcat
-      state: directory
-      mode: 0755
