@@ -40,7 +40,7 @@ pipeline {
 	    }
 	    }
     
-	    	    
+    }	    	    
   post
     {
          success
@@ -66,8 +66,8 @@ pipeline {
             }
         }
     }
-    }
-                            
+    
+                       
         }
 		stage('ansibleTower')
         {
