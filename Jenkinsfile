@@ -9,9 +9,19 @@ pipeline {
              sh 'mvn clean package'
 		}
 	}
-	}
+	} 
+	if (branchName == "master") {
+              promoteStage()
+              }
+		
+		 def promoteStage(){
+              // Stage: promote
+                   stage ('Appprove to proceed'){	
+                       notifyQA()
+	               proceedConfirmation("proceed1","promote to Prod ?")
+                  }
 	
-    stage('Upload artifacts') {
+    stage('pramote artifact to QA') {
             
             steps {
             script {
@@ -29,7 +39,7 @@ pipeline {
                         server.publishBuildInfo(buildInfo1)
 	    }
 	    }
-	    
+    
 	    	    
   post
     {
@@ -55,6 +65,7 @@ pipeline {
                  
             }
         }
+    }
     }
                             
         }
