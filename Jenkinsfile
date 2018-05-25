@@ -9,17 +9,9 @@ pipeline {
              sh 'mvn clean package'
 		}
 	}
-	} 
-	if (branchName == "master") {
-              promoteStage()
-              }
+	}
 		
-		 def promoteStage(){
-              // Stage: promote
-                   stage ('Appprove to proceed'){	
-                       notifyQA()
-	               proceedConfirmation("proceed1","promote to Prod ?")
-                  }
+	
 	
     stage('pramote artifact to QA') {
             
