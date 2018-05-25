@@ -80,7 +80,7 @@ pipeline {
                         verbose: false
                     }
 	    }
-	}
+	
  post
     {
          success
@@ -108,6 +108,7 @@ pipeline {
     }
 		
 	    }
+	}
 }
 		
 	    
