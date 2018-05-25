@@ -67,12 +67,12 @@ pipeline {
                     
                     
                         ansibleTower credential: '',
-                        extraVars: "tag: ${env.BUILD_NUMBER}",
+                  //      extraVars: "tag: ${env.BUILD_NUMBER}",
                         importTowerLogs: false,
                         importWorkflowChildLogs: false,
                         inventory: 'Demo Inventory',
                         jobTags: '',
-                        jobTemplate: 'Demo job Template',
+                        jobTemplate: 'Demo Job Template',
                         limit: '',
                         removeColor: false,
                         templateType: 'job',
